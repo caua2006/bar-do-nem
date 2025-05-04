@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/cardapio.js" defer></script>
+    <script src="js/script.js" defer></script>
+    <title>Cardápio - Bar do Nem</title>
+</head>
+<body class="bg-white text-[#191919] transition-colors duration-300">
+    <header class="dark-header bg-white h-32 flex justify-between items-center px-40 max-lg:flex-wrap max-lg:h-auto">
+        <nav class="dark-nav text-[#191919] flex gap-7">
+            <a href="index.html" class="hover:text-[#FFD700] transition-colors duration-300">Início</a>
+            <a href="cardapio.html" class="hover:text-[#FFD700] transition-colors duration-300 font-bold">Cardápio</a>
+            <a href="sobre.html" class="hover:text-[#FFD700] transition-colors duration-300">Sobre</a>
+        </nav>
+
+        <img class="w-20" src="images/icon/logo.png" alt="Logo Bar do Nem">
+
+        <div class="flex justify-center items-center gap-7">
+            <button onclick="toggleTheme()" class="p-2 rounded-full border-none bg-gray-100 dark-bg-gray dark-text transition-colors duration-300 flex items-center gap-2">
+                <span id="theme-icon">🌙</span>
+                <span>Tema</span>
+            </button>
+            <a id="shoppingCartIcon" href="carrinho.html">
+                <img src="images/icon/shopping-cart-dark.svg" alt="Carrinho">
+            </a>
+            <button class="dark-button bg-black text-white px-6 py-4 rounded-full w-fit transition-all duration-300 ease-in-out hover:bg-[#FFC000] hover:scale-105 hover:text-black">Pedir agora</button>
+        </div>
+    </header>
+
+    <main class="px-40 py-12">
+        <div class="mb-12">
+            <h1 class="text-5xl font-bold mb-8 text-center">Cardápio Semanal</h1>
+            <p class="text-center max-w-3xl mx-auto mb-12">Descubra nossos pratos especiais para cada dia da semana, preparados com ingredientes frescos e muito sabor.</p>
+            
+            <!-- Dias da semana - Navegação -->
+            <div class="flex justify-center mb-12">
+                <div class="flex gap-7 max-lg:flex-wrap">
+                    <button class="tab-day text-[#191919] px-5 py-2 rounded-full w-fit transition-all duration-300 ease-in-out hover:text-[#FFD700] hover:bg-black hover:scale-105" onclick="showDay('segunda')">Segunda</button>
+                    <button class="tab-day text-[#191919] px-5 py-2 rounded-full w-fit transition-all duration-300 ease-in-out hover:text-[#FFD700] hover:bg-black hover:scale-105" onclick="showDay('terca')">Terça</button>
+                    <button class="tab-day text-[#191919] px-5 py-2 rounded-full w-fit transition-all duration-300 ease-in-out hover:text-[#FFD700] hover:bg-black hover:scale-105" onclick="showDay('quarta')">Quarta</button>
+                    <button class="tab-day text-[#191919] px-5 py-2 rounded-full w-fit transition-all duration-300 ease-in-out hover:text-[#FFD700] hover:bg-black hover:scale-105 " onclick="showDay('quinta')">Quinta</button>
+                    <button class="tab-day text-[#191919] px-5 py-2 rounded-full w-fit transition-all duration-300 ease-in-out hover:text-[#FFD700] hover:bg-black hover:scale-105" onclick="showDay('sexta')">Sexta</button>
+                </div>
+            </div>
+            
+            <!-- Segunda-feira -->
+            <div id="menu-segunda" class="menu-day">
+                <h2 class="text-3xl font-bold mb-8 text-center">Segunda-feira: Dia da Feijoada</h2>
+                
+                <div class="grid grid-cols-3 gap-4 mb-9 max-lg:grid-cols-1 max-lg:flex max-lg:items-center max-lg:flex-col">
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://acarnequeomundoprefere.com.br/uploads/media/image/frimesa-receitas-eisbein-1.jpg" alt="Feijoada Completa" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Feijoada Completa</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Feijão preto, lombo, costela, paio, linguiça calabresa, laranja, couve, arroz e farofa
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 45,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="feijoada" data-name="Feijoada Completa" data-price="45.90" data-image="https://acarnequeomundoprefere.com.br/uploads/media/image/frimesa-receitas-eisbein-1.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.minhareceita.com.br/app/uploads/2020/10/feijoada-light-com-linguica-calabresa-seara-mais-couve-manteiga-e-vinagrete-1.jpg" alt="Feijoada Light" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Feijoada Light</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Versão mais leve com carnes selecionadas e menos gordura, acompanha arroz, farofa e couve
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 39,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="feijoada-light" data-name="Feijoada Light" data-price="39.90" data-image="https://www.minhareceita.com.br/app/uploads/2020/10/feijoada-light-com-linguica-calabresa-seara-mais-couve-manteiga-e-vinagrete-1.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://d1uz88p17r663j.cloudfront.net/original/ef72ad021ff829703af85b08efb552df_picadinho-carne-batata-cenoura-receitas-nestle.jpg" alt="Picadinho de Carne" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Picadinho de Carne</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Cubos de filé mignon, arroz, farofa e batata palha, acompanha ovo de codorna
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 38,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="picadinho" data-name="Picadinho de Carne" data-price="38.90" data-image="https://d1uz88p17r663j.cloudfront.net/original/ef72ad021ff829703af85b08efb552df_picadinho-carne-batata-cenoura-receitas-nestle.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://static.itdg.com.br/images/1200-675/82a28aad77a013831d5c0ca43544eedc/319875-original.jpg" alt="Caipirinha de Limão" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Caipirinha de Limão</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Cachaça artesanal, limão fresco, açúcar e gelo. A tradicional bebida brasileira
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 18,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="caipirinha" data-name="Caipirinha de Limão" data-price="18.90" data-image="https://static.itdg.com.br/images/1200-675/82a28aad77a013831d5c0ca43544eedc/319875-original.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://s2-oglobo.glbimg.com/YyUC_KRFzV2nRNd8OVaN2O6iBuo=/0x0:5257x3505/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/o/M/S3B6yZQYOrjtTTBNEMLQ/copo-de-suco-de-laranja-e-uma-pessoa-espremendo-uma-laranja-nele.jpg" alt="Suco de Laranja" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Suco de Laranja</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Suco de laranja natural, sem conservantes, gelado e espremido na hora
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 9,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="suco-laranja" data-name="Suco de Laranja" data-price="9.90" data-image="https://s2-oglobo.glbimg.com/YyUC_KRFzV2nRNd8OVaN2O6iBuo=/0x0:5257x3505/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_da025474c0c44edd99332dddb09cabe8/internal_photos/bs/2023/o/M/S3B6yZQYOrjtTTBNEMLQ/copo-de-suco-de-laranja-e-uma-pessoa-espremendo-uma-laranja-nele.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://static.itdg.com.br/images/640-440/d1307a2e17cda187df76b78cfd3ac464/shutterstock-2322251819-1-.jpg" alt="Pudim de Leite" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Pudim de Leite</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Tradicional pudim de leite condensado com calda de caramelo
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 12,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="pudim" data-name="Pudim de Leite" data-price="12.90" data-image="https://static.itdg.com.br/images/640-440/d1307a2e17cda187df76b78cfd3ac464/shutterstock-2322251819-1-.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Terça-feira -->
+            <div id="menu-terca" class="menu-day hidden">
+                <h2 class="text-3xl font-bold mb-8 text-center">Terça-feira: Dia do Peixe</h2>
+                
+                <div class="grid grid-cols-3 gap-4 mb-9 max-lg:grid-cols-1 max-lg:flex max-lg:items-center max-lg:flex-col">
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.estadao.com.br/resizer/v2/3CVRBS5HRVMQBK5AWU5ENVP3LI.jpg?quality=80&auth=691696fe8240b2878a56eba5aec7af9adc2f0a97dc4282b6c956a54be603a38b&width=720&height=503&focal=0,0" alt="Moqueca Mista" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Moqueca Mista</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Peixe e camarão em molho de dendê, leite de coco, pimentões e arroz
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 52,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="moqueca" data-name="Moqueca Mista" data-price="52.90" data-image="https://www.estadao.com.br/resizer/v2/3CVRBS5HRVMQBK5AWU5ENVP3LI.jpg?quality=80&auth=691696fe8240b2878a56eba5aec7af9adc2f0a97dc4282b6c956a54be603a38b&width=720&height=503&focal=0,0">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.melhorpanela.com/wp-content/uploads/2024/08/peixada.png" alt="Peixada Nordestina" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Peixada Nordestina</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Peixe cozido com legumes, pirão e arroz branco, temperos nordestinos
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 48,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="peixada" data-name="Peixada Nordestina" data-price="48.90" data-image="https://www.melhorpanela.com/wp-content/uploads/2024/08/peixada.png">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.minhareceita.com.br/app/uploads/2022/02/peixe-a-milanesa-1.jpg" alt="Peixe à Milanesa" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Peixe à Milanesa</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Filé de tilápia empanado, arroz, salada e batata frita
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 38,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="peixe-milanesa" data-name="Peixe à Milanesa" data-price="38.90" data-image="https://www.minhareceita.com.br/app/uploads/2022/02/peixe-a-milanesa-1.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZo6V5pJ8QwQRbkLI8iOKwEKPQup3Y4c1sug&s" alt="Bobó de Camarão" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Bobó de Camarão</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Camarões em creme de aipim com dendê e leite de coco, arroz branco
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 56,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="bobo-camarao" data-name="Bobó de Camarão" data-price="56.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZo6V5pJ8QwQRbkLI8iOKwEKPQup3Y4c1sug&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW9X0JrsRzG4q1qgzq146fIegf7Z7pVOJdfw&s" alt="Vinho Branco" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Vinho Branco</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Taça de vinho branco nacional Sauvignon Blanc (150ml)
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 22,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="vinho-branco" data-name="Vinho Branco" data-price="22.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW9X0JrsRzG4q1qgzq146fIegf7Z7pVOJdfw&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://static.itdg.com.br/images/1200-675/8231acb174ba2e6a4b4a61145e48eea7/249008-shutterstock-1907121220.jpg" alt="Mousse de Maracujá" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Mousse de Maracujá</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Sobremesa cremosa de maracujá com calda da fruta
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 14,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="mousse-maracuja" data-name="Mousse de Maracujá" data-price="14.90" data-image="https://static.itdg.com.br/images/1200-675/8231acb174ba2e6a4b4a61145e48eea7/249008-shutterstock-1907121220.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quarta-feira -->
+            <div id="menu-quarta" class="menu-day hidden">
+                <h2 class="text-3xl font-bold mb-8 text-center">Quarta-feira: Dia da Carne</h2>
+                
+                <div class="grid grid-cols-3 gap-4 mb-9 max-lg:grid-cols-1 max-lg:flex max-lg:items-center max-lg:flex-col">
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://receitasde.com.br/wp-content/uploads/2024/07/Picanha-na-Brasa-.jpg" alt="Picanha na Brasa" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Picanha na Brasa</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Picanha grelhada, arroz, farofa, vinagrete e batata frita
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 59,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="picanha" data-name="Picanha na Brasa" data-price="59.90" data-image="https://receitasde.com.br/wp-content/uploads/2024/07/Picanha-na-Brasa-.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBU6J7sADqx6f7EXYCrV5mkyq87vY4Xh65600QbDxfzHN36yUgPg9Jiww5Pu-IvCUQrlDry3R2bfa7dht2H_c4ejIC0Y1PcVM1IKCeLxoTNp8kREwNaSX8q7hLomACyO-JVpPHoNbtN1me/s1600/cupim_bafo.jpg" alt="Cupim no Bafo" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Cupim no Bafo</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Cupim cozido lentamente, mandioca, arroz e vinagrete
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 47,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="cupim" data-name="Cupim no Bafo" data-price="47.90" data-image="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBU6J7sADqx6f7EXYCrV5mkyq87vY4Xh65600QbDxfzHN36yUgPg9Jiww5Pu-IvCUQrlDry3R2bfa7dht2H_c4ejIC0Y1PcVM1IKCeLxoTNp8kREwNaSX8q7hLomACyO-JVpPHoNbtN1me/s1600/cupim_bafo.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.estadao.com.br/resizer/v2/WSWGR3VNIVEMZEDCZ3DPAQD3BQ.jpg?quality=80&auth=1e80a50a274f370b5a498c5c05e3c3922fcfcc23a8d31821b4ab182863e56060&width=720&height=503&focal=758,1139" alt="Bife à Parmegiana" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Bife à Parmegiana</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Filé empanado, molho de tomate, queijo, arroz e batata frita
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 42,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="parmegiana" data-name="Bife à Parmegiana" data-price="42.90" data-image="https://www.estadao.com.br/resizer/v2/WSWGR3VNIVEMZEDCZ3DPAQD3BQ.jpg?quality=80&auth=1e80a50a274f370b5a498c5c05e3c3922fcfcc23a8d31821b4ab182863e56060&width=720&height=503&focal=758,1139">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwAkvPNWe4DdM7VcGAVM3BY7eA_eH4qDZRMg&s" alt="Feijão Tropeiro" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Feijão Tropeiro</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Feijão, bacon, linguiça, ovos, couve refogada e torresmo
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 36,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="tropeiro" data-name="Feijão Tropeiro" data-price="36.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwAkvPNWe4DdM7VcGAVM3BY7eA_eH4qDZRMg&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTehjKcgkVIvyA8Q0HaWlmg-3mMBBz74vpPLg&s" alt="Chopp Pilsen" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Chopp Pilsen</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Chopp artesanal servido bem gelado (400ml)
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 12,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="chopp" data-name="Chopp Pilsen" data-price="12.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTehjKcgkVIvyA8Q0HaWlmg-3mMBBz74vpPLg&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.estadao.com.br/resizer/v2/CYLWU3EDIFBFLB3PIAWUAQW4YQ.jpg?quality=80&auth=31a73ce1ffb5a8f17e4f3c3ef6ae4d69fe066a054a8c19714e5171ffe09eaa22&width=720&height=503&smart=true" alt="Petit Gateau" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Petit Gateau</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Bolo quente de chocolate com calda e sorvete de creme
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 18,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="petit-gateau" data-name="Petit Gateau" data-price="18.90" data-image="https://www.estadao.com.br/resizer/v2/CYLWU3EDIFBFLB3PIAWUAQW4YQ.jpg?quality=80&auth=31a73ce1ffb5a8f17e4f3c3ef6ae4d69fe066a054a8c19714e5171ffe09eaa22&width=720&height=503&smart=true">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Quinta-feira -->
+            <div id="menu-quinta" class="menu-day hidden">
+                <h2 class="text-3xl font-bold mb-8 text-center">Quinta-feira: Dia da Massa</h2>
+                
+                <div class="grid grid-cols-3 gap-4 mb-9 max-lg:grid-cols-1 max-lg:flex max-lg:items-center max-lg:flex-col">
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://guiadacozinha.com.br/wp-content/uploads/2019/10/lasanha-bolonhesa.jpg" alt="Lasanha à Bolonhesa" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Lasanha à Bolonhesa</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Massa em camadas, molho de tomate, carne moída e bechamel
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 39,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="lasanha" data-name="Lasanha à Bolonhesa" data-price="39.90" data-image="https://guiadacozinha.com.br/wp-content/uploads/2019/10/lasanha-bolonhesa.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQehNEfpJlG441fp_uUpVkftkwiNhF6dfy-tQ&s" alt="Nhoque de Mandioquinha" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Nhoque de Mandioquinha</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Nhoque de mandioquinha com molho de tomate e manjericão
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 36,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="nhoque" data-name="Nhoque de Mandioquinha" data-price="36.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQehNEfpJlG441fp_uUpVkftkwiNhF6dfy-tQ&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo0311vWW4VEZPsOMTt-cihkYuWae_FPBRXg&s" alt="Macarrão Caseiro" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Macarrão Caseiro</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Massa caseira com molho de calabresa e queijo coalho
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 42,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="macarrao" data-name="Macarrão Caseiro" data-price="42.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTo0311vWW4VEZPsOMTt-cihkYuWae_FPBRXg&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeJwoHSpQE6izEMhVstQED0ZBWJdc8IH9AzA&s" alt="Canelone de Frango" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Canelone de Frango</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Massa recheada com frango desfiado, queijo e ervas
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 38,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="canelone" data-name="Canelone de Frango" data-price="38.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeJwoHSpQE6izEMhVstQED0ZBWJdc8IH9AzA&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDFlHpDnyxiQOgpiZALjtzdA0QibGFiiOh2Q&s" alt="Vinho Tinto" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Vinho Tinto</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Taça de vinho tinto brasileiro (150ml)
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 24,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="vinho-tinto" data-name="Vinho Tinto" data-price="24.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDFlHpDnyxiQOgpiZALjtzdA0QibGFiiOh2Q&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpiRjt4A-TRZSmORiY_YiHwruO-I1TBpw42A&s" alt="Tiramisu" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Tiramisu</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Sobremesa italiana com café, queijo mascarpone e chocolate
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 19,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="tiramisu" data-name="Tiramisu" data-price="19.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpiRjt4A-TRZSmORiY_YiHwruO-I1TBpw42A&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sexta-feira -->
+            <div id="menu-sexta" class="menu-day hidden">
+                <h2 class="text-3xl font-bold mb-8 text-center">Sexta-feira: Dia do Churrasco</h2>
+                
+                <div class="grid grid-cols-3 gap-4 mb-9 max-lg:grid-cols-1 max-lg:flex max-lg:items-center max-lg:flex-col">
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://d3jdy5kagtp3z4.cloudfront.net/files/eventos/171554/a2a35be399c23882bb71d9cf8a76512d.png" alt="Rodízio de Carnes" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Rodízio de Carnes</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            10 cortes selecionados, farofa, arroz, vinagrete e batata frita
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 89,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="rodizio" data-name="Rodízio de Carnes" data-price="89.90" data-image="https://d3jdy5kagtp3z4.cloudfront.net/files/eventos/171554/a2a35be399c23882bb71d9cf8a76512d.png">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScXIhE6Rv3WZEoz6h3O4EldOt1fU4ESi8NIw&s" alt="Costela no Bafo" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Costela no Bafo</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Costela bovina cozida lentamente, aipim, arroz e vinagrete
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 54,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="costela" data-name="Costela no Bafo" data-price="54.90" data-image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScXIhE6Rv3WZEoz6h3O4EldOt1fU4ESi8NIw&s">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://loja.srfilet.com.br/cdn/shop/products/fininhaardida_1051x700.jpg?v=1611688343" alt="Linguiça Artesanal" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Linguiça Artesanal</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Linguiça de porco defumada, arroz, farofa e vinagrete
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 39,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="linguica" data-name="Linguiça Artesanal" data-price="39.90" data-image="https://loja.srfilet.com.br/cdn/shop/products/fininhaardida_1051x700.jpg?v=1611688343">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://i.panelinha.com.br/i1/bk-2405-espetinho-misto.webp" alt="Espetinhos Mistos" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Espetinhos Mistos</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            5 espetinhos (frango, carne, linguiça, kafta e coração), acompanha farofa
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 45,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="espetinhos" data-name="Espetinhos Mistos" data-price="45.90" data-image="https://i.panelinha.com.br/i1/bk-2405-espetinho-misto.webp">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://cervejariaantuerpia.com.br/wp-content/uploads/2020/09/como-surgiu-a-cerveja-artesanal.jpg" alt="Cerveja Artesanal" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Cerveja Artesanal</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            IPA local (500ml), aroma frutado e sabor intenso
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 18,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="cerveja" data-name="Cerveja Artesanal" data-price="18.90" data-image="https://cervejariaantuerpia.com.br/wp-content/uploads/2020/09/como-surgiu-a-cerveja-artesanal.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="max-w-xs bg-[#191919] rounded-lg p-4 text-white shadow-lg">
+                        <img src="https://www.receiteria.com.br/wp-content/uploads/pudim-gelado-de-coco-00.jpg" alt="Pudim de Coco" class="w-full h-40 object-cover rounded-md mb-4">
+                        
+                        <h2 class="text-lg font-bold mb-1">Pudim de Coco</h2>
+                        <p class="text-sm text-zinc-400 mb-3">
+                            Pudim caseiro com coco ralado e calda caramelizada
+                        </p>
+                        
+                        <div class="flex items-center justify-between">
+                            <span class="text-white font-semibold text-lg">R$ 15,90</span>
+                            <button class="add-to-cart p-2 rounded-full bg-black bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-opacity-100 hover:scale-110 hover:bg-[#FFD700]" data-id="pudim-coco" data-name="Pudim de Coco" data-price="15.90" data-image="https://www.receiteria.com.br/wp-content/uploads/pudim-gelado-de-coco-00.jpg">
+                                <img class="size-4" src="images/icon/shopping-cart.svg" alt="Adicionar ao carrinho">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mb-16">
+            <a href="carrinho.html" class="dark-button bg-black text-white px-8 py-4 rounded-full inline-block transition-all duration-300 ease-in-out hover:bg-[#FFD700] hover:scale-105 hover:text-black">
+                Ver Meu Carrinho
+            </a>
+        </div>
+    </main>
+
+    <footer class="dark-footer bg-white text-[#191919] py-20 px-20 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo e Descrição -->
+                <div class="space-y-4">
+                    <img src="images/icon/logo.png" alt="Logo Bar do Nem" class="h-12">
+                    <p class="text-gray-600">O melhor lugar para desfrutar de momentos especiais com comida deliciosa e ambiente aconchegante.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">
+                            <img src="images/icon/facebook.svg" alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">
+                            <img src="images/icon/instagram.svg" alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">
+                            <img src="images/icon/whatsapp.svg" alt="WhatsApp" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Início</a></li>
+                        <li><a href="cardapio.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Cardápio</a></li>
+                        <li><a href="contato.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Contato</a></li>
+                        <li><a href="sobre.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <img src="images/icon/phone.svg" alt="Telefone" class="w-5 h-5">
+                            <span>(11) 1234-5678</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <img src="images/icon/email.svg" alt="Email" class="w-5 h-5">
+                            <span>contato@bardonem.com</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <img src="images/icon/location.svg" alt="Localização" class="w-5 h-5">
+                            <span>Av. Paulista, 1000 - São Paulo, SP</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Horário de Funcionamento -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Horário de Funcionamento</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex justify-between">
+                            <span>Segunda - Sexta</span>
+                            <span>11:00 - 23:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado</span>
+                            <span>11:00 - 00:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo</span>
+                            <span>11:00 - 22:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Bar do Nem. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    
+</body>
+</html> 

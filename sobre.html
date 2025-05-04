@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="js/script.js" defer></script>
+    <title>Sobre Nós - Bar do Nem</title>
+</head>
+<body class="bg-white text-[#191919] transition-colors duration-300 max-lg:text-sm">
+    <header class="dark-header bg-white h-32 flex justify-between items-center px-40 max-lg:flex-wrap">
+        <nav class="dark-nav text-[#191919] flex gap-7">
+            <a href="index.html" class="hover:text-[#FFD700] transition-colors duration-300">Início</a>
+            <a href="cardapio.html" class="hover:text-[#FFD700] transition-colors duration-300">Cardápio</a>
+            <a href="sobre.html" class="hover:text-[#FFD700] transition-colors duration-300 font-bold">Sobre</a>
+        </nav>
+
+        <img class="w-20" src="images/icon/logo.png" alt="Logo Bar do Nem">
+
+        <div class="flex justify-center items-center gap-7">
+            <button onclick="toggleTheme()" class="p-2 rounded-full border-none bg-gray-100 dark-bg-gray dark-text transition-colors duration-300 flex items-center gap-2">
+                <span id="theme-icon">🌙</span>
+                <span>Tema</span>
+            </button>
+            <a id="shoppingCartIcon" href="carrinho.html">
+                <img src="images/icon/shopping-cart-dark.svg" alt="Carrinho">
+            </a>
+            <button class="dark-button bg-black text-white px-6 py-4 rounded-full w-fit transition-all duration-300 ease-in-out hover:bg-[#FFC000] hover:scale-105 hover:text-black">Pedir agora</button>
+        </div>
+    </header>
+
+    <main class="px-40 py-12 max-lg:px-3">
+        <div class="mb-16">
+            <h1 class="text-5xl font-bold mb-8 text-center">Sobre o Bar do Nem</h1>
+            <p class="text-center max-w-3xl mx-auto mb-12">Conheça a história, valores e missão do Bar do Nem, um restaurante com raízes profundas na culinária brasileira.</p>
+            
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Nossa História</h2>
+                <div class="flex gap-10 items-center max-lg:flex-col">
+                    <div class="w-1/2">
+                        <p class="mb-6">
+                            O Bar do Nem nasceu em 2010, quando o chef Manoel "Nem" Oliveira decidiu transformar sua paixão pela culinária brasileira em um negócio. Após anos trabalhando em restaurantes renomados, Nem decidiu criar um espaço que valorizasse os sabores autênticos do Brasil, com um toque contemporâneo.
+                        </p>
+                        <p class="mb-6">
+                            Começando como uma pequena casa na zona sul de São Paulo, o Bar do Nem rapidamente ganhou fama pelos seus pratos saborosos e ambiente acolhedor. Com o tempo, expandimos para outros bairros, mas mantivemos a essência que nos tornou especiais: comida brasileira de qualidade, feita com amor e ingredientes frescos.
+                        </p>
+                        <p>
+                            Hoje, o Bar do Nem é referência na gastronomia brasileira, oferecendo uma experiência única que combina a tradição da nossa culinária com um atendimento caloroso e ambiente descontraído. Cada prato conta uma história e cada visita se torna uma celebração dos sabores que fazem parte da nossa identidade cultural.
+                        </p>
+                    </div>
+                    <div class="w-1/2">
+                        <img src="images/Background.png" alt="História do Bar do Nem" class="rounded-lg shadow-lg w-full">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Nossos Valores</h2>
+                <div class="grid grid-cols-3 gap-8 max-lg:grid-cols-1">
+                    <div class="bg-[#191919] p-8 rounded-lg text-white">
+                        <h3 class="text-xl font-bold mb-4 text-[#FFD700]">Autenticidade</h3>
+                        <p>Valorizamos os sabores autênticos da culinária brasileira, respeitando suas origens e tradições, enquanto oferecemos uma experiência contemporânea.</p>
+                    </div>
+                    <div class="bg-[#191919] p-8 rounded-lg text-white">
+                        <h3 class="text-xl font-bold mb-4 text-[#FFD700]">Qualidade</h3>
+                        <p>Comprometemo-nos com a excelência em cada detalhe, desde a seleção dos ingredientes até o atendimento, garantindo uma experiência memorável.</p>
+                    </div>
+                    <div class="bg-[#191919] p-8 rounded-lg text-white">
+                        <h3 class="text-xl font-bold mb-4 text-[#FFD700]">Hospitalidade</h3>
+                        <p>Recebemos cada cliente como um convidado especial, criando um ambiente acolhedor onde todos se sintam à vontade e bem-vindos.</p>
+                    </div>
+                    <div class="bg-[#191919] p-8 rounded-lg text-white">
+                        <h3 class="text-xl font-bold mb-4 text-[#FFD700]">Inovação</h3>
+                        <p>Buscamos constantemente novas formas de surpreender e encantar, sem perder a essência que nos define.</p>
+                    </div>
+                    <div class="bg-[#191919] p-8 rounded-lg text-white">
+                        <h3 class="text-xl font-bold mb-4 text-[#FFD700]">Sustentabilidade</h3>
+                        <p>Adotamos práticas responsáveis que minimizam nosso impacto ambiental e contribuem para o bem-estar das comunidades onde estamos presentes.</p>
+                    </div>
+                    <div class="bg-[#191919] p-8 rounded-lg text-white">
+                        <h3 class="text-xl font-bold mb-4 text-[#FFD700]">Colaboração</h3>
+                        <p>Acreditamos no trabalho em equipe e no poder das relações humanas, valorizando cada membro da nossa família e cada parceiro que contribui para o nosso sucesso.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Nosso Time</h2>
+                <div class="grid grid-cols-4 gap-8 max-lg:grid-cols-1">
+                    <div class="text-center">
+                        <img src="images/testimonials/client1.svg" alt="Manoel Oliveira" class="w-36 h-36 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Manoel Oliveira</h3>
+                        <p class="text-gray-600">Fundador e Chef Executivo</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="images/testimonials/client1.svg" alt="Ana Souza" class="w-36 h-36 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Ana Souza</h3>
+                        <p class="text-gray-600">Chef de Cozinha</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="images/testimonials/client1.svg" alt="Carlos Mendes" class="w-36 h-36 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Carlos Mendes</h3>
+                        <p class="text-gray-600">Gerente de Operações</p>
+                    </div>
+                    <div class="text-center">
+                        <img src="images/testimonials/client1.svg" alt="Roberta Lima" class="w-36 h-36 rounded-full mx-auto mb-4">
+                        <h3 class="text-xl font-bold">Roberta Lima</h3>
+                        <p class="text-gray-600">Sommelier</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold mb-8 text-center">Seja um Franqueado</h2>
+                <div class="bg-[#191919] p-10 rounded-lg text-white max-lg:w-full">
+                    <div class="grid grid-cols-2 gap-10 max-lg:w-full max-lg:grid-cols-1">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-[#FFD700]">Por que se tornar um franqueado?</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#FFD700] text-xl">✓</span>
+                                    <span>Modelo de negócio comprovado com mais de 15 anos de sucesso</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#FFD700] text-xl">✓</span>
+                                    <span>Suporte completo desde a escolha do ponto até a operação diária</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#FFD700] text-xl">✓</span>
+                                    <span>Treinamento especializado para você e sua equipe</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#FFD700] text-xl">✓</span>
+                                    <span>Marketing nacional e estratégias locais personalizadas</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <span class="text-[#FFD700] text-xl">✓</span>
+                                    <span>Marca reconhecida e valorizada pelos consumidores</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold mb-6 text-[#FFD700]">Entre em contato</h3>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-sm mb-1">Nome completo</label>
+                                    <input type="text" class="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-600 focus:border-[#FFD700] focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1">E-mail</label>
+                                    <input type="email" class="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-600 focus:border-[#FFD700] focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1">Telefone</label>
+                                    <input type="tel" class="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-600 focus:border-[#FFD700] focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-sm mb-1">Cidade de interesse</label>
+                                    <input type="text" class="w-full px-4 py-2 rounded-md bg-gray-800 border border-gray-600 focus:border-[#FFD700] focus:outline-none">
+                                </div>
+                                <div>
+                                    <button class="bg-[#FFD700] text-black font-bold py-3 px-6 rounded-full hover:bg-opacity-90 transition-all duration-300">Quero ser um franqueado</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="cardapio.html" class="dark-button bg-black text-white px-8 py-4 rounded-full inline-block transition-all duration-300 ease-in-out hover:bg-[#FFD700] hover:scale-105 hover:text-black">
+                    Conheça Nosso Cardápio
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="dark-footer bg-white text-[#191919] py-20 px-20 border-t border-gray-200">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Logo e Descrição -->
+                <div class="space-y-4">
+                    <img src="images/icon/logo.png" alt="Logo Bar do Nem" class="h-12">
+                    <p class="text-gray-600">O melhor lugar para desfrutar de momentos especiais com comida deliciosa e ambiente aconchegante.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">
+                            <img src="images/icon/facebook.svg" alt="Facebook" class="w-6 h-6">
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">
+                            <img src="images/icon/instagram.svg" alt="Instagram" class="w-6 h-6">
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">
+                            <img src="images/icon/whatsapp.svg" alt="WhatsApp" class="w-6 h-6">
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Links Rápidos -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Início</a></li>
+                        <li><a href="cardapio.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Cardápio</a></li>
+                        <li><a href="contato.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Contato</a></li>
+                        <li><a href="sobre.html" class="text-gray-600 hover:text-[#FFD700] transition-colors duration-300">Sobre</a></li>
+                    </ul>
+                </div>
+
+                <!-- Informações de Contato -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <img src="images/icon/phone.svg" alt="Telefone" class="w-5 h-5">
+                            <span>(11) 1234-5678</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <img src="images/icon/email.svg" alt="Email" class="w-5 h-5">
+                            <span>contato@bardonem.com</span>
+                        </li>
+                        <li class="flex items-center gap-2 text-gray-600">
+                            <img src="images/icon/location.svg" alt="Localização" class="w-5 h-5">
+                            <span>Av. Paulista, 1000 - São Paulo, SP</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Horário de Funcionamento -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Horário de Funcionamento</h3>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex justify-between">
+                            <span>Segunda - Sexta</span>
+                            <span>11:00 - 23:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Sábado</span>
+                            <span>11:00 - 00:00</span>
+                        </li>
+                        <li class="flex justify-between">
+                            <span>Domingo</span>
+                            <span>11:00 - 22:00</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 Bar do Nem. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html> 
