@@ -269,7 +269,7 @@ function checkoutWhatsapp() {
     const encodedMessage = encodeURIComponent(message);
     
     // Número do WhatsApp do restaurante (substitua pelo número real)
-    const phoneNumber = "5511999999999";
+    const phoneNumber = "5511912069160";
     
     // Cria o link para o WhatsApp
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
